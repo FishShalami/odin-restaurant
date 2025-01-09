@@ -1,5 +1,5 @@
 console.log('Hello there!');
-import "./styles.css";
+import "./global.css";
 import createHomeContent from "./homeContent.js";
 import createMenuContent from "./menuContent.js";
 import emptyContent from "./emptyContent.js";
@@ -17,15 +17,19 @@ navBtns.forEach((btn) => {
         emptyContent();
         // console.log(this.id);
         if (this.id === 'home') {
-            createHomeContent();
+            import("./home.css")
+                .then (() => {
+                    createHomeContent();
+            })
         } else if (this.id === 'menu') {
-            createMenuContent();
+            import("./menu.css")
+                .then (() => {
+                    createMenuContent();
+                });
         } else console.log('Error!');
     });
 });
 
 
-// homeBtn.addEventListener('click', function(e) {
-//     console.log(this.id);
-// });
+
 

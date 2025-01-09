@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+
+h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+h3 {
+    font-size: 1.2rem;
+    color: rgb(5, 69, 165);
+    text-align: left;
+}
+
+
+.entree-container,
+.sides-container {
+    display: flex;
+    flex-direction: column;
+    flex: 1 auto;
+    width: 400px;
+    margin: 0 auto;
+} 
+
+

@@ -8,30 +8,84 @@ function createMenuContent() {
         return;
       }
 
-    const header1 = document.createElement('h1');
-    header1.textContent = "Our Cereal Menu";
+  const header1 = document.createElement('h1');
+  header1.textContent = "Our Cereal Menu";
 
-    const entreeDiv = document.createElement('div');
+  const entreeDiv = document.createElement('div');
+  entreeDiv.className = 'entree-container';
 
+  const entrees = document.createElement('h2');
+  entrees.textContent = "Cereal Entrees";
 
-    const entrees = document.createElement('h2');
-    entrees.textContent = "Cereal Entrees";
+  const entreesData = [
+    {
+      name: 'Cinammon Toast Crunch',
+      description: 'Small squares with cinammon sugar'
+    },
+    {
+      name: 'Frosted Flakes',
+      description: 'Corn flakes with sugar'
+    },
+    {
+      name: 'Cocoa Puffs',
+      description: 'Corn puff balls with chocolate syrup'
+    }
+  ];
 
-    const entree1 = document.createElement('h3');
-    entree1.textContent = 'Cinnamon Toast Crunch';
+  const sideDiv = document.createElement('div');
+  sideDiv.className = 'sides-container';
+  const sides = document.createElement('h2');
+  sides.textContent = "Cereal Sides";
 
-    const entree1Desc = document.createElement('p');
-    entree1Desc.textContent = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit sequi corporis unde eos id ullam quos officia ex sunt sit, necessitatibus soluta nihil temporibus deleniti facere, impedit eligendi tempora error?"
+  const sidesData = [
+    {
+      name: 'Chocolate Milk',
+      description: '2% Milk with chocolate syrup'
+    },
+    {
+      name: 'Apple Slices',
+      description: 'Honeycrisp apples sliced thin'
+    },
+    {
+      name: 'Bananna Slices',
+      description: 'Slices of ripe bananna'
+    }
+  ];
 
+  contentContainer.appendChild(header1);
+  contentContainer.appendChild(entreeDiv);
+  entreeDiv.appendChild(entrees);
 
+  entreesData.forEach((entree) => {
+    const entreeElement = createItem(entree.name, entree.description, 'entree');
+    entreeDiv.appendChild(entreeElement);
+  });
 
-    contentContainer.appendChild(header1);
-    contentContainer.appendChild(entreeDiv)
-    entreeDiv.appendChild(entrees);
-    entreeDiv.appendChild(entree1);
-    entreeDiv.appendChild(entree1Desc);
+  contentContainer.appendChild(sideDiv);
+  sideDiv.appendChild(sides);
+
+  sidesData.forEach((side) => {
+      const sideElement = createItem(side.name, side.description, 'side');
+      sideDiv.appendChild(sideElement);
+    });
 
     return contentContainer
+}
+
+function createItem(name, description, htmlClass) {
+  const entreeDiv = document.createElement('div');
+  entreeDiv.className = htmlClass;
+
+  const entreeName = document.createElement('h3');
+  entreeName.textContent = name;
+
+  const entreeDesc = document.createElement('p');
+  entreeDesc.textContent = description;
+
+  entreeDiv.appendChild(entreeName);
+  entreeDiv.appendChild(entreeDesc);
+
+  return entreeDiv;
 }
 
 export default createMenuContent;

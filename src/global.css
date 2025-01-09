@@ -15,18 +15,15 @@ h1 {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     /* border: red 2px solid; */
-    margin: 0 40px;
+    margin: 0 auto;
 }
 
 header {
     height: 10vh;
 }
 
-
-img {
-    height: 400px;
-}
 
 nav {
     /* border: solid red 2px; */
